@@ -1,4 +1,4 @@
-# AlignGAD
+# [PRICAI '26] A Zero-shot Generalized Graph Anomaly Detection Framework via Node Reconstruction
 
 Official repository for **AlignGAD**, accepted at **The Pacific Rim
 International Conference on Artificial Intelligence (PRICAI) 2026**.

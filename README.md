@@ -33,11 +33,11 @@ may organize the benchmark files differently.
 
 AlignGAD has three main parts:
 
-- **Global graph signal unification**, which maps different graph domains into a
+- **Global Unification Module**, which maps different graph domains into a
   more comparable feature space.
-- **Cluster-aware multi-view construction**, which lets the model reason over
+- **Clustering Module**, which lets the model reason over
   both fine-grained nodes and coarser graph structures.
-- **Node discrepancy scoring**, which combines reconstruction behavior,
+- **Node Discrepancy Ccoring Module**, which combines reconstruction behavior,
   auxiliary graph cues, and source-guided calibration to produce anomaly scores.
 
 ## :bar_chart: Results

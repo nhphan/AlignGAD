@@ -1,17 +1,76 @@
-# AlignGAD: Instructions to reproduce the results.
-## How to Run
+# AlignGAD
 
-1. **Upload the notebook to Google Colab**
-   - Upload `AlignGAD.ipynb` to Google Colab.
-   - In Colab, go to **Runtime > Change runtime type**.
-   - Select **L4 GPU** as the hardware accelerator.
+Official repository for **AlignGAD**, accepted at **The Pacific Rim
+International Conference on Artificial Intelligence (PRICAI) 2026**.
 
-2. **Add the dataset folder to your Google Drive**
-   - Open the following Google Drive folder:  
-     https://drive.google.com/drive/folders/1bCWkULtPi_EnZtZviaZIWyENHfGDJKC7
-   - Create a shortcut to this folder in your own Google Drive.
-<img width="1511" height="827" alt="image" src="https://github.com/user-attachments/assets/92f42e4b-9392-4a46-873c-cbe0746d69c6" />
+AlignGAD studies zero-shot generalized graph anomaly detection: the model learns
+from source graphs and is transferred to unseen target graphs without
+target-domain training. The central idea is to make node reconstruction more
+transferable by aligning graph signals across domains, constructing
+cluster-aware graph views, and calibrating node-level discrepancy scores with
+source supervision.
 
-3. **Run the notebook**
-   - Open `AlignGAD.ipynb` in Google Colab.
-   - Run all code cells in order by selecting **Runtime > Run all**.
+## Overview
+
+![AlignGAD architecture](fig/main_structure.png)
+
+At a high level, AlignGAD combines:
+
+- Global graph signal unification
+- Cluster-aware multi-view graph construction
+- Node reconstruction and discrepancy scoring
+- Source-guided score calibration
+- Multi-view anomaly score aggregation
+
+## Results
+
+![AlignGAD results](fig/results.png)
+
+The figure above summarizes the reported cross-domain anomaly detection results.
+For exact experimental settings, source/target splits, and discussion, please
+refer to the paper.
+
+## Code
+
+The core reference implementation is provided in:
+
+```text
+aligngad.py
+```
+
+Install the basic dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Then adapt `load_graph(name)` so that it returns:
+
+```python
+A, X, y
+```
+
+where `A` is the adjacency matrix, `X` is the node feature matrix, and `y` is the
+binary anomaly label vector when labels are available.
+
+After defining your loader, a typical run looks like:
+
+```bash
+python aligngad.py \
+  --sources Facebook Flickr BlogCatalog ACM \
+  --targets Cora Citeseer Pubmed Photo CS Amazon YelpChi Reddit
+```
+
+## Citation
+
+```bibtex
+@misc{nguyen2026zeroshotgeneralizedgraphanomaly,
+  title={A Zero-shot Generalized Graph Anomaly Detection Framework via Node Reconstruction},
+  author={Phan Nguyen and Dat Cao and Hien Chu and Khue Hoang},
+  year={2026},
+  eprint={2606.12673},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2606.12673},
+}
+```

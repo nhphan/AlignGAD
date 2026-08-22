@@ -1,5 +1,10 @@
 # [PRICAI '26] A Zero-shot Generalized Graph Anomaly Detection Framework via Node Reconstruction
 
+[![arXiv](https://img.shields.io/badge/arXiv-2606.12673-b31b1b.svg)](https://arxiv.org/abs/2606.12673)
+<!-- [![Paper](https://img.shields.io/badge/Paper-AlignGAD-blue.svg)](https://arxiv.org/abs/2606.12673)
+[![PDF](https://img.shields.io/badge/PDF-arXiv-red.svg)](https://arxiv.org/pdf/2606.12673)
+[![Code](https://img.shields.io/badge/Code-PyTorch-green.svg)](aligngad.py) -->
+
 ## :sparkles: Introduction
 
 This is the official repository for **AlignGAD**, accepted at **The Pacific Rim
